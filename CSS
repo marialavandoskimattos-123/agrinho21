@@ -1,0 +1,180 @@
+:root {
+    --bg-base: #f0f4f1;
+    --text-primary: #16331c;
+    --text-secondary: #3b5240;
+    --accent-color: #2e7d32;
+    --accent-hover: #1b5e20;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-border: rgba(46, 125, 50, 0.2);
+    --shadow-color: rgba(22, 51, 28, 0.1);
+    /* Cores gradientes simulando plantação caso a imagem falhe */
+    --gradient-hero: linear-gradient(135deg, rgba(46, 125, 50, 0.8), rgba(139, 195, 74, 0.6)), url('https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&q=80&w=1920');
+}
+
+.dark-mode {
+    --bg-base: #0d140e;
+    --text-primary: #e8f5e9;
+    --text-secondary: #b2c7b5;
+    --accent-color: #81c784;
+    --accent-hover: #a5d6a7;
+    --card-bg: rgba(20, 30, 22, 0.9);
+    --card-border: rgba(129, 199, 132, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --gradient-hero: linear-gradient(135deg, rgba(13, 20, 14, 0.85), rgba(27, 94, 32, 0.7)), url('https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&q=80&w=1920');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--card-border);
+    box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.logo { font-size: 1.6rem; font-weight: 800; }
+.logo span { color: var(--accent-color); }
+
+.btn-theme {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--text-primary);
+    padding: 8px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-theme:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+}
+
+/* Hero estilizado com as plantas ao fundo */
+.hero-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: var(--gradient-hero);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.glass-container {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 40px var(--shadow-color);
+}
+
+.badge {
+    background: var(--accent-color);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.glass-container h1 {
+    font-size: 2.3rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.glass-container p {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+}
+
+.action-box {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid var(--card-border);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #16331c;
+    font-size: 1rem;
+    outline: none;
+}
+
+.dark-mode input[type="text"] {
+    background: rgba(30, 30, 30, 0.9);
+    color: #ffffff;
+}
+
+.btn-interactive {
+    background: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-interactive:hover { background: var(--accent-hover); }
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px 8%;
+    background: var(--bg-base);
+}
+
+.visual-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px var(--shadow-color);
+    transition: transform 0.3s ease;
+}
+
+.visual-card:hover { transform: translateY(-5px); }
+.icon-box { font-size: 2rem; margin-bottom: 10px; }
+footer { text-align: center; padding: 20px; background: var(--card-bg); font-size: 0.9rem; }
+
+@media (max-width: 600px) {
+    .action-box { flex-direction: column; }
+    .glass-container h1 { font-size: 1.8rem; }
+}
